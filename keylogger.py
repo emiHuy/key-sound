@@ -16,6 +16,8 @@ def minecraft_theme(key):
     try:
         if key == keyboard.Key.enter:
             play_sound("assets/sounds/minecraft/click.wav")
+        elif key == keyboard.Key.shift:
+            pass
         elif key.char.isalpha():
             variation = random.randint(1,4)
             play_sound("assets/sounds/minecraft/wood/wood" + str(variation) + ".wav")
