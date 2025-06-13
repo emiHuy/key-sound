@@ -1,0 +1,86 @@
+from pynput import keyboard
+import pygame
+import random
+
+class KeySoundPlayer:
+    theme = "minecraft"
+
+    def run(self):
+        pygame.mixer.init()
+        listener = keyboard.Listener(on_press=self.key_pressed)
+        listener.start()
+        input() 
+
+    def set_theme(self, new_theme):
+        self.theme = new_theme
+
+    def key_pressed(self, key):
+        match(self.theme):
+            case "minecraft":
+                self.minecraft_theme(key)
+            case "mario":
+                self.mario_theme(key)
+            case "animal crossing":
+                self.animal_crossing_theme(key)
+            case _:
+                pass
+
+    def play_sound(self, path, volume=1):
+        sound = pygame.mixer.Sound(path)
+        sound.set_volume(volume)
+        sound.play()
+
+    def minecraft_theme(self, key):
+        try:
+            if key == keyboard.Key.enter:
+                self.play_sound("assets/sounds/minecraft/click.wav")
+            elif key == keyboard.Key.shift:
+                pass
+            elif key == keyboard.Key.space:
+                variation = random.randint(1,4)
+                self.play_sound("assets/sounds/minecraft/sand/sand" + str(variation) + ".wav")
+            elif key.char.isalpha():
+                variation = random.randint(1,4)
+                self.play_sound("assets/sounds/minecraft/wood/wood" + str(variation) + ".wav")
+            elif key.char.isnumeric():
+                variation = random.randint(1,4)
+                self.play_sound("assets/sounds/minecraft/stone/stone" + str(variation) + ".wav")
+            else:
+                variation = random.randint(1,4)
+                self.play_sound("assets/sounds/minecraft/grass/grass" + str(variation) + ".wav", 0.6)
+        except:
+            self.play_sound("assets/sounds/minecraft/pop.wav", 0.6)
+
+    def mario_theme(self, key):
+        try:
+            if key == keyboard.Key.enter:
+                self.play_sound("assets/sounds/mario/pipe.wav")
+            elif key == keyboard.Key.shift:
+                pass
+            elif key == keyboard.Key.space:
+                self.play_sound("assets/sounds/mario/jump.wav", 0.9)
+            elif key.char.isalpha():
+                self.play_sound("assets/sounds/mario/fireball.wav", 0.8)
+            elif key.char.isnumeric():
+                self.play_sound("assets/sounds/mario/bump.wav", 0.8)
+            else:
+                self.play_sound("assets/sounds/mario/bump.wav", 0.8)
+        except:
+            self.play_sound("assets/sounds/mario/coin.wav", 0.5)
+
+    def animal_crossing_theme(self, key):
+        try:
+            if key == keyboard.Key.enter:
+                self.play_sound("assets/sounds/animal-crossing/confirm.mp3", 0.3)
+            elif key == keyboard.Key.shift:
+                pass
+            elif key == keyboard.Key.space or key.char.isalpha() or key.char.isnumeric():
+                self.play_sound("assets/sounds/animal-crossing/intense.mp3", 1.4)
+            else:
+                self.play_sound("assets/sounds/animal-crossing/greetings.mp3", 1.2)
+        except:
+            self.play_sound("assets/sounds/animal-crossing/decline.mp3", 0.8)
+
+if __name__ == "__main__":
+    player = KeySoundPlayer()
+    player.run()
