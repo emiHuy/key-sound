@@ -3,31 +3,40 @@ import pygame
 import random
 
 class KeySoundPlayer:
-    theme = "minecraft"
+    def __init__(self):
+        self._theme = "Minecraft"
+        self._volume_adj_factor = 1
+        self._listener = None
 
     def run(self):
         pygame.mixer.init()
-        listener = keyboard.Listener(on_press=self.key_pressed)
-        listener.start()
-        input() 
-
+        self._listener = keyboard.Listener(on_press=self.key_pressed)
+        self._listener.start()
+        input()         
+    
+    def end(self):
+        self._listener.stop()
+        
     def set_theme(self, new_theme):
-        self.theme = new_theme
+        self._theme = new_theme
+
+    def set_volume_adj_factor(self, new_volume_adj_factor):
+        self._volume_adj_factor = new_volume_adj_factor
 
     def key_pressed(self, key):
-        match(self.theme):
-            case "minecraft":
+        match(self._theme):
+            case "Minecraft":
                 self.minecraft_theme(key)
-            case "mario":
+            case "Super Mario Bros.":
                 self.mario_theme(key)
-            case "animal crossing":
+            case "Animal Crossing":
                 self.animal_crossing_theme(key)
             case _:
                 pass
 
     def play_sound(self, path, volume=1):
         sound = pygame.mixer.Sound(path)
-        sound.set_volume(volume)
+        sound.set_volume(volume*self._volume_adj_factor)
         sound.play()
 
     def minecraft_theme(self, key):
