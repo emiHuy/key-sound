@@ -9,7 +9,7 @@ This project uses `pynput`'s keyboard listener to detect keystrokes in real time
 ## Project Metadata
 **Author:** Emily  
 **Date Created:** June 13, 2025  
-**Last Updated:** June 13, 2025  
+**Last Updated:** June 14, 2025  
 
 ## Features
 - Play different sounds for different keys/groups of keys
