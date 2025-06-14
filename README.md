@@ -28,6 +28,7 @@ This project uses `pynput`'s keyboard listener to detect keystrokes in real time
 - `main.py`: entry point
 - `README.md`: project overeview and documentation
 - `requirements.txt`: necessary packages and dependencies
+- `utils.py`: contains helper function for handling file paths
 
 ### /assets/
 - `images/`: contains images and icons used for the combo box component in the GUI
