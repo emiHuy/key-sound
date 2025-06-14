@@ -49,12 +49,11 @@ class KeySoundWindow(QMainWindow):
         central_widget = QWidget()
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)
-    
+
     def set_player(self, player):
         self._player = player
 
     def closeEvent(self, event):
         if hasattr(self, "_player"):
-            print(1)
             self._player.end()
         event.accept()

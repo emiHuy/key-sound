@@ -8,5 +8,4 @@ if __name__ == "__main__":
     window = ksw.KeySoundWindow()
     window.show()
     controller = ksc.KeySoundController(window)
-    controller._player.run()
     app.exec()

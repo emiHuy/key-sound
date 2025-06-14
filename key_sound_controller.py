@@ -6,6 +6,7 @@ class KeySoundController:
         self._player = player.KeySoundPlayer()
         self._view.set_player(self._player)
         self.connect_signals()
+        self._player.run()
 
     def connect_signals(self):
         self._view.theme_combobox.currentTextChanged.connect(self.handle_combobox)
