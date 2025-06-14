@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QMainWindow, QGridLayout, QLabel, QComboBox, QWidget, QSlider
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QIcon, QFont
+from utils import resource_path
 
 class KeySoundWindow(QMainWindow):
     def __init__(self):
@@ -18,9 +19,9 @@ class KeySoundWindow(QMainWindow):
         # sound theme combobox
         self.theme_combobox = QComboBox()
         self.theme_combobox.setFixedSize(180, 30)
-        self.theme_combobox.addItem(QIcon("assets/images/minecraft.jpg"), "Minecraft")
-        self.theme_combobox.addItem(QIcon("assets/images/super-mario-bros.png"), "Super Mario Bros.")
-        self.theme_combobox.addItem(QIcon("assets/images/animal-crossing.jpg"), "Animal Crossing")
+        self.theme_combobox.addItem(QIcon(resource_path("assets/images/minecraft.jpg")), "Minecraft")
+        self.theme_combobox.addItem(QIcon(resource_path("assets/images/super-mario-bros.png")), "Super Mario Bros.")
+        self.theme_combobox.addItem(QIcon(resource_path("assets/images/animal-crossing.jpg")), "Animal Crossing")
         self.theme_combobox.setFont(font)
 
         # volume label
