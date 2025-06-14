@@ -12,9 +12,8 @@ class KeySoundPlayer:
     def run(self):
         pygame.mixer.init()
         self._listener = keyboard.Listener(on_press=self.key_pressed)
-        self._listener.start()
-        input()         
-    
+        self._listener.start()    
+
     def end(self):
         self._listener.stop()
         
