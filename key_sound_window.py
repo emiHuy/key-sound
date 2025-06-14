@@ -8,6 +8,7 @@ class KeySoundWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("KeySound")
         self.setFixedSize(QSize(350, 200))
+        self.setWindowIcon(QIcon(resource_path("assets/images/key-sound-icon.png")))
 
         font = QFont("Segoe UI", 11)
 
