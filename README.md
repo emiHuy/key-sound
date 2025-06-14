@@ -22,9 +22,13 @@ This project uses `pynput`'s keyboard listener to detect keystrokes in real time
 
 ## File Information
 - `.gitignore`: specifies untracked files to ignore in Git
-- `README.md`: project overeview and documentation
-- `main.py`: entry point
-- `requirements.txt`: necessary packages and dependencies
 - `key_sound_controller.py`: event handling and user interaction
 - `key_sound_player.py`: business logic, detects the keys pressed and plays the sounds
 - `key_sound_window.py`: GUI (with PySide6)
+- `main.py`: entry point
+- `README.md`: project overeview and documentation
+- `requirements.txt`: necessary packages and dependencies
+
+### /assets/
+- `images/`: contains images and icons used for the combo box component in the GUI
+- `sounds/`: contains sound files that are grouped by themes. These sounds are played in response to keys pressed
