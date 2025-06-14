@@ -31,7 +31,7 @@ class KeySoundWindow(QMainWindow):
         # volume combo box
         self.volume_slider = QSlider(Qt.Horizontal)
         self.volume_slider.setMinimum(0)
-        self.volume_slider.setMaximum(30)
+        self.volume_slider.setMaximum(10)
         self.volume_slider.setValue(10)
         self.volume_slider.setTickInterval(1)
         self.volume_slider.setTickPosition(QSlider.NoTicks)

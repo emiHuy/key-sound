@@ -16,4 +16,4 @@ class KeySoundController:
         self._player.set_theme(self._view.theme_combobox.currentText())
     
     def handle_slider(self):
-        self._player.set_volume_adj_factor(self._view.volume_slider.value()/2)
+        self._player.set_volume_adj_factor(self._view.volume_slider.value()/10)
